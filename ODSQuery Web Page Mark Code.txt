@@ -1,0 +1,46 @@
+ODSQuery web page
+
+ <div class="row">
+        <asp:Button ID="CountAlbums" runat="server" Text="Count Albums"  />&nbsp;&nbsp;
+        <asp:Label ID="Label1" runat="server" Text="Number of Albums per Artist"></asp:Label>
+    </div>
+    <div>
+        <asp:ListView ID="ArtistAlbumCountList" runat="server"
+              ItemType="Chinook.Data.POCOs.ArtistAlbumCounts">
+            <LayoutTemplate>
+                <div >
+                    <span runat="server" id="itemPlaceholder" />
+                </div>
+            </LayoutTemplate>
+            <ItemTemplate>
+                <div>
+                    <asp:DropDownList ID="ArtistList2" runat="server" 
+                        DataSourceID="ArtistListODS" 
+                        DataTextField="Name" DataValueField="ArtistId"
+                         SelectedValue ='<%# Item.ArtistId %>'
+                         Enabled="false">
+                    </asp:DropDownList>&nbsp;&nbsp;&nbsp;
+                    <%# Item.AlbumCount %> 
+                </div>
+            </ItemTemplate>
+        </asp:ListView>
+    </div>
+
+AlbumDetails web page
+
+<div class="row">
+        <asp:Label ID="Label3" runat="server" Text="Total time and size"></asp:Label>&nbsp;&nbsp;
+        <asp:LinkButton ID="Totals" runat="server" >Totals</asp:LinkButton>&nbsp;&nbsp;
+        <asp:Label ID="Label4" runat="server" Text="Time: "></asp:Label>&nbsp;&nbsp;
+        <asp:Label ID="TracksTime" runat="server" ></asp:Label>&nbsp;&nbsp;
+        <asp:Label ID="Label7" runat="server" Text="Size: "></asp:Label>&nbsp;&nbsp;
+        <asp:Label ID="TracksSize" runat="server" ></asp:Label>
+    </div>
+     <div class="row">
+        <asp:Label ID="Label2" runat="server" Text="You picked track id: "></asp:Label>&nbsp;&nbsp;
+        <asp:Label ID="Label5" runat="server" Text="Command Arg: "></asp:Label>&nbsp;&nbsp;
+        <asp:Label ID="CommandArgID" runat="server" ></asp:Label>&nbsp;&nbsp;
+        <asp:Label ID="Label6" runat="server" Text="Column : "></asp:Label>&nbsp;&nbsp;
+        <asp:Label ID="ColumnID" runat="server" ></asp:Label>
+    </div>
+
